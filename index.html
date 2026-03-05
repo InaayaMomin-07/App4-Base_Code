@@ -29,8 +29,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 -->
 	
 <head> 
-	<title>Hello World</title>  
-]	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Strain or Sprain</title>  
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="stylesheet" href="w3.css">
 	<link rel="stylesheet" href="w3-colors-flat.css">
@@ -38,7 +38,31 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <script>
 
-	//YOUR JAVASCRIPT GOES HERE
+	//
+	//
+	var strain_count = 0;
+	var sprain_count = 0;
+	var total_questions = 4;
+
+
+	function strainAdd(){
+		strain_count = strain_count + 1;
+	}
+
+	function sprainAdd(){
+		sprain_count = sprain_count + 1;
+	}
+
+	function calculateResults(){
+
+		var strainPercent = (strain_count/4) * 100;
+
+		var sprainPercent = (sprain_count/4) * 100;
+
+		var resultText = document.getElementById("results");
+		resultText.innerHTML = "Probability it is a strain=" + strainPercent.toFixed(0) + "%" +
+			"<br> Probability it is a sprain =" + sprainPercent.toFixed(0) + "%";
+	}
 
 </script>	
 
@@ -67,9 +91,12 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </style>
 
 <body>
-	
-	<!-- HERE IS WHERE ALL OF YOUR HTML PAGES GO -->
-	REPLACE THIS TEXT
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Strain or Sprain?</h1>
+</div>
+<div id="content" class="w3-container">
+	<p>Are you feeling pain after twisting, falling, or overusing a part of your body and wondering whether it's a strain or a sprain? Answer a few quick questions to find out!</p>
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
 	
 </body>
 </html>
