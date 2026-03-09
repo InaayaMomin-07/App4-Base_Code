@@ -4,7 +4,6 @@
  
 THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
- 
 Authors in chronological order of contribution:
 Tim Riedel
 inaaya Momin
@@ -36,38 +35,44 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<link rel="stylesheet" href="w3.css">
 		<link rel="stylesheet" href="w3-colors-flat.css">
 	</head> 
+	
 
+	
 <script>
 	//This section controls the users' scores of sprain vs. strain. When final results are displayed on the screen, this section helps determine the chance the user sprain or strained a certain part of their body. 
-	//This keeps track of how many of the answers a person inputs suggest that he/she has strained their ankle, wrist, etc. If the answer shows symptoms of a strain, the number will increase. It starts off at 0 before the user answers questions in the app. When the user answers "yes" or "no,"  the function is called and +1 is either added to strain or sprain, increasing the variable.
-	var strain_count = 0;
-	var sprain_count = 0;
-	var total_questions = 4;
+		//This keeps track of how many of the answers a person inputs suggest that he/she has strained or sprained their ankle, wrist, etc. If the answer shows symptoms of a strain, the variable for strain will increase. If the answer shows symptoms of a sprain, the variable for sprain will increase. 
+		//It starts off at 0 before the user answers questions in the app. When the user answers "yes" or "no,"  the function is called and +1 is either added to strain or sprain, increasing the variable.
+		var strain_count = 0;
+		var sprain_count = 0;
+		// This is the total number of questions the app user will have to answer before a diganosis is made.
+		var total_questions = 4;
 
-
-	function strainAdd(){
-		strain_count = strain_count + 1;
-	}
-
-	function sprainAdd(){
+		// This function is called when a person's answer suggests he/she has strained a particular part of their body. The strain counter increases by 1 each time.
+		function strainAdd(){
+			strain_count = strain_count + 1;
+		}
+		// This function is called when a person's answer suggests he/she has sprained a particular part of their body. The sprain counter increases by 1 each time.
+		function sprainAdd(){
 		sprain_count = sprain_count + 1;
-	}
-
-	function calculateResults(){
-
+		}
+		// This function is called when the person has answered all questions and the final percentage of their sprain or strain diagnosis needs to be determined. The final percentages are then displayed after reuslts have been calculated.
+		function calculateResults(){
+		//Calculation for chance of strain.
 		var strainPercent = (strain_count/4) * 100;
-
+		//Calculation for chance of sprain.
 		var sprainPercent = (sprain_count/4) * 100;
-
+		//Gets the HTML element with the id "results" so the final probabilities can be displayed and inserts the calculated allergy and cold probabilities into the webpage.
 		var resultText = document.getElementById("results");
 		resultText.innerHTML = "Probability it is a strain=" + strainPercent.toFixed(0) + "%" +
 			"<br> Probability it is a sprain =" + sprainPercent.toFixed(0) + "%";
-	}
-
+		}
 </script>	
 
 
+	
 <!-- THIS STYLE CODE HELPS MAKE YOUR APP LOOK GOOD. PROBABLY DONT MESS WITH IT -->
+<!-- This section codes for the layout of the app. -->
+<!-- The pages are brought onto the screen when their IDs are clicked. -->
 <style>	
 .body {
      margin: 0em;
@@ -93,6 +98,9 @@ img, object{
 }
 </style>
 
+
+	
+<!-- This is the code for the page displayed when users first access the app. The are introduced to how the app works, shown an image, and presented with a disclaimer. After users click "Get Started," they are directed to the first question. -->	
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
 	<h1>Strain or Sprain?</h1>
@@ -105,9 +113,12 @@ img, object{
 	<p>The following code has been developed by a student at the University of Texas at Austin of the Freshman Research Initiative in the DIY Diagnostics Stream. This code was created for educational and entertainment purposes. It is NOT a product and should not be used to diagnose any injuries or conditions. The student, FRI, and UT Austin are not responsible for any outcomes of this code. Users are advised to seek medical attention based off their own perception and shall not use the code to determine if medical care is/is not necessary.</p>
 
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE. SEEK MEDICAL HELP IMMEDIATELY BASED ON CIRCUMSTANCES.</p>
-</div> <!-- /content -->
+</div><!-- /content -->
 
 
+	
+<!-- The following section contains the codes for pages 1, 2, 3 and 4. The user can answer "yes" or "no" to each of the 4 questions by clicking the respective button. Based on the user's answer, it will add to either the sprain or strain counter. Each page's section code indicates which counter will be added to when the answer is yes and which counter will be added to when it is no. -->
+<!-- Each of the pages also have a header. The header allows the user to see the purpose of that page/question number. -->
 <div class="page" id="one">
 		<div id="header" class="w3-container w3-flat-carrot">
 			<h1>Question 1</h1>
@@ -118,8 +129,6 @@ img, object{
 			<a href="#two" onclick="strainAdd();" class="w3-btn w3-black">No</a>
 		</div><!-- /content -->
 	</div>
-
-
 
 <div class="page" id="two">
 	<div id="header" class="w3-container w3-flat-carrot">
@@ -133,8 +142,6 @@ img, object{
 	</div><!-- /content -->
 </div>
 
-
-
 <div class="page" id="three">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 3</h1>
@@ -146,8 +153,6 @@ img, object{
 		<a href="#four" onclick="sprainAdd();" class="w3-btn w3-black">No</a>
 	</div><!-- /content -->
 </div>
-
-
 
 <div class="page" id="four">
 	<div id="header" class="w3-container w3-flat-carrot">
@@ -162,6 +167,8 @@ img, object{
 </div>
 
 
+
+<!-- This is the code for the page displayed after all questions are answered. Users can use the "Click here for your results" button to figure out their calculated percentages which includes finding out if they more likely sprained or strained their ankle, wrist, etc. The function from the beginnning is called so results can be accurately displayed on the next page. -->
 <div class="page" id="five">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Your results are ready!</h1>
@@ -171,7 +178,7 @@ img, object{
 	</div>
 </div>
 
-
+<!-- Final results are displayed here. Results calculated in percentages of sprain or strain. Results are displayed as 0%, 25%, 50%, 75%, or 100% in each of the two categories. -->
 <div class="page" id="resultsPage">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Results</h1>
@@ -181,7 +188,7 @@ img, object{
 	</div>
 </div>
 
-
+<!-- Footer added to display research lab name -->
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
