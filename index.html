@@ -17,29 +17,29 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+The code was created to help the user determine if they have a sprain or strain in their foot, wrist, etc. They must answer "yes" or "no" to 4 simple questions. The app will use their responses to determine the percent chances they have of having a sprain vs. strain. 
  
 Known Issues:
-blah, blah, blah, blah
+Answers will not be saved if app is refereshed; user must manually re-enter their responses. App can only make a diagnosis based on responses to 4 questions. It may not be accurate, and thus, it is improtant to seek professional help to ensure that proper medical care is received.
 Ignore this error message if you see it using the javaScript console: Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.
 
 References:
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
-	
-<head> 
-	<title>Strain or Sprain</title>  
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<link rel="stylesheet" href="w3.css">
-	<link rel="stylesheet" href="w3-colors-flat.css">
-</head> 
+
+<!-- Ensures that the website links projects the code like an app and correctly fits both the screen of the phone and laptop. This section manages the aesthetics of the app. -->
+	<head> 
+		<title>Strain or Sprain</title>  
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" href="w3.css">
+		<link rel="stylesheet" href="w3-colors-flat.css">
+	</head> 
 
 <script>
-
-	//
-	//
+	//This section controls the users' scores of sprain vs. strain. When final results are displayed on the screen, this section helps determine the chance the user sprain or strained a certain part of their body. 
+	//This keeps track of how many of the answers a person inputs suggest that he/she has strained their ankle, wrist, etc. If the answer shows symptoms of a strain, the number will increase. It starts off at 0 before the user answers questions in the app. When the user answers "yes" or "no,"  the function is called and +1 is either added to strain or sprain, increasing the variable.
 	var strain_count = 0;
 	var sprain_count = 0;
 	var total_questions = 4;
@@ -73,8 +73,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
      margin: 0em;
 }
 img, object{ 
-	max-height:60%; 
-	max-width:60%; 
+	max-height:65%; 
+	max-width:65%; 
 }
 .page {
     width: 100vw;
